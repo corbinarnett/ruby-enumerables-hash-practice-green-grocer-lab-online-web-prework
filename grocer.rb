@@ -70,7 +70,7 @@ def checkout(cart, coupons)
   total = 0 #acting as a counter
   #iterate through final cart
   super_savings_cart.keys.each do |item|
-    total += super_savings_cart[item][:price] * super_savings_cart[item][:num]
+    total += super_savings_cart[item][:price] * super_savings_cart[item][:count] #the total is the individual item price * count of item in cart
   end
 
 end
