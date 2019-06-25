@@ -67,6 +67,10 @@ def checkout(cart, coupons)
   coupon_cart = apply_coupons(consol_cart,coupons) #step 2 coupons are applied
   super_savings_cart = apply_clearance(coup_cart)  #step 3 clearance is applied, giving us our final cart
 
-  total = 0
+  total = 0 #acting as a counter
+  #iterate through final cart
+  super_savings_cart.keys.each do |item|
+    total += super_savings_cart[item][:price] * super_savings_cart[item][:num]
+  end
 
 end
