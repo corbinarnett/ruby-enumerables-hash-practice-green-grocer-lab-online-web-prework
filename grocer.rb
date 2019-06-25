@@ -1,9 +1,9 @@
-require 'pry'
+# require 'pry'
 def consolidate_cart(cart)
   updated_cart = {} #create new hash
   #iterate through cart
   cart.each do |item|
-      binding.pry
+ #binding.pry
     if updated_cart[item.keys[0]] #if updated_cart returns keys  increase count.  But this returns falsy so we move on.
       updated_cart[item.keys[0]][:count] += 1
     else
