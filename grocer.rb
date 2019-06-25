@@ -36,6 +36,7 @@ def apply_coupons(cart, coupons)
     cart[new_item][:count] += coupon[:num]  # adds the coupon price to the property hash of couponed item
                                             #adds the count number to the property hash of couponed item
   else
+      # item:count is < coupon:num, list current item
     cart[new_item] = {
       count: coupon[:num],
       price: coupon[:cost]/coupon[:num],
