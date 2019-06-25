@@ -56,8 +56,10 @@ def apply_clearance(cart)
     if cart[value][:clearance] #if clearance is truthy
         #take 20% off price of item
       cart[value][:price] = cart[value][:price] - (cart[value][:price] * 0.20)
+    end
 
   end
+  cart
 end
 
 def checkout(cart, coupons)
