@@ -51,7 +51,7 @@ cart
 end
 
 def apply_clearance(cart)
-  cart.each do |key, value|
+  cart.keys.each do |value|
     
   end
 end
