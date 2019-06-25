@@ -1,4 +1,4 @@
-
+# REQUIRE 'PRY'
 def consolidate_cart(cart)
   updated_cart = {} #create new hash
   #iterate through cart
@@ -30,10 +30,11 @@ def apply_coupons(cart, coupons)
     coupons.each do |coupon|
       if cart.keys.include? coupon[:item] #does cart include? a key that matches a key in the coupon hash
         if cart[coupon[:item]][:count] >= coupon[:num] #if the count of the item with the coupon in the cart is >= the number in the coupon
-          #Create a new item
-  new_item = "#{coupon[:item]} W/COUPON"
-  if cart[new_item]
-    cart[new_item][:count] += coupon[:num]
+          #Create a new item if there is a coupon
+  new_item = "#{coupon[:item]} W/COUPON" #adds a new key, value pair to the cart hash called 'ITEM NAME W/COUPON'
+  if cart[new_item] #if this is true
+    cart[new_item][:count] += coupon[:num]  # adds the coupon price to the property hash of couponed item
+                                            #adds the count number to the property hash of couponed item
   else
     cart[new_name] = {
       count: coupon[:num],
@@ -41,7 +42,7 @@ def apply_coupons(cart, coupons)
       clearance: cart[coupon[:item]][:clearance]
     }
   end
-  cart[coupon[:item]][:count] -= coupon[:num]
+  cart[coupon[:item]][:count] -= coupon[:num] #  removes the number of discounted items from the original item's count
       end
     end
   end
