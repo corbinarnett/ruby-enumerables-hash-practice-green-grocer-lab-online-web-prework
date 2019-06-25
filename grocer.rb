@@ -51,7 +51,11 @@ cart
 end
 
 def apply_clearance(cart)
-  cart.keys.each do |value|
+
+  cart.keys.each do |value| #iterate through cart hash using.keys to select key and .each
+    if cart[value][:clearance] #if clearance is truthy
+        #take 20% off price of item
+      cart[value][:price] = cart[value][:price] - (cart[value][:price] * 0.20)
 
   end
 end
