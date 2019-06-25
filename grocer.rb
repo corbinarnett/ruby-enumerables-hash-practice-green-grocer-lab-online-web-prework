@@ -36,10 +36,10 @@ def apply_coupons(cart, coupons)
     cart[new_item][:count] += coupon[:num]  # adds the coupon price to the property hash of couponed item
                                             #adds the count number to the property hash of couponed item
   else
-    cart[new_name] = {
+    cart[new_item] = {
       count: coupon[:num],
       price: coupon[:cost]/coupon[:num],
-      clearance: cart[coupon[:item]][:clearance]
+      clearance: cart[coupon[:item]][:clearance] #remembers if the item was on clearance
     }
   end
   cart[coupon[:item]][:count] -= coupon[:num] #  removes the number of discounted items from the original item's count
