@@ -73,4 +73,6 @@ def checkout(cart, coupons)
     total += super_savings_cart[item][:price] * super_savings_cart[item][:count] #the total is the individual item price * count of item in cart
   end
 
+  total > 100 ? (total * .9).round = total
+
 end
