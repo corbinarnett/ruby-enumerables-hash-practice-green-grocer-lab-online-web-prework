@@ -19,8 +19,16 @@ updated_cart
 end
 
 def apply_coupons(cart, coupons)
+  #Iterating through coupon hash...
+  #def coupons
+  # 	[
+  # 		{:item => "AVOCADO", :num => 2, :cost => 5.00},
+  # 		{:item => "BEER", :num => 2, :cost => 20.00},
+  # 		{:item => "CHEESE", :num => 3, :cost => 15.00}
+  # 	]
+  # end
     coupons.each do |coupon|
-      if cart.keys.include? coupon[:item]
+      if cart.keys.include? coupon[:item] #does cart include? a key that matches a key in the coupon hash
         if cart[coupon[:item]][:count] >= coupon[:num]
   new_name = "#{coupon[:item]} W/COUPON"
   if cart[new_name]
