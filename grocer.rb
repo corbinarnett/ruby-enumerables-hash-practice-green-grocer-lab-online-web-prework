@@ -31,7 +31,7 @@ def apply_coupons(cart, coupons)
       if cart.keys.include? coupon[:item] #does cart include? a key that matches a key in the coupon hash
         if cart[coupon[:item]][:count] >= coupon[:num] #if the count of the item with the coupon in the cart is >= the number in the coupon
           #Create a new item if there is a coupon
-  new_item = "#{coupon[:item]} W/COUPON" #adds a new key, value pair to the cart hash called 'ITEM NAME W/COUPON'
+          new_item = "#{coupon[:item]} W/COUPON" #adds a new key, value pair to the cart hash called 'ITEM NAME W/COUPON'
   if cart[new_item] #if this is true
     cart[new_item][:count] += coupon[:num]  # adds the coupon price to the property hash of couponed item
                                             #adds the count number to the property hash of couponed item
