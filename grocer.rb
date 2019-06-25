@@ -65,14 +65,14 @@ end
 def checkout(cart, coupons)
   consol_cart = consolidate_cart(cart) #our consolidated cart
   coupon_cart = apply_coupons(consol_cart,coupons) #step 2 coupons are applied
-  super_savings_cart = apply_clearance(coupon_cart)  #step 3 clearance is applied, giving us our final cart
+  super_savings_cart = apply_clearance(coupon_cart)  #step 3 clearance is applied if any, giving us our final cart
 
-  total = 0 #acting as a counter
+  total = 0.0 #acting as a counter
   #iterate through final cart
   super_savings_cart.keys.each do |item|
     total += super_savings_cart[item][:price] * super_savings_cart[item][:count] #the total is the individual item price * count of item in cart
   end
 
-  total > 100 ? (total * .9).round : total
+  total > 100? (total * 0.9).round 
 
 end
